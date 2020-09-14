@@ -128,8 +128,8 @@ class HomeViewController: UIViewController {
         }
         
         @objc func inboxPressed(){
-            let VC = DiscussionViewController()
-            navigationController?.pushViewController(VC, animated: true)
+//            let VC = DiscussionViewController()
+//            navigationController?.pushViewController(VC, animated: true)
         }
     }
 

@@ -76,3 +76,5 @@ extension CategoryView:UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
 
 }
+
+

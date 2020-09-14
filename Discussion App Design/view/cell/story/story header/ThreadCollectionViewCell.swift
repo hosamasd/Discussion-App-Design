@@ -23,12 +23,13 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var userImage:UIImageView = {
-        let img = UIImageView()
+        let img = UIImageView(image: UIImage(named:"prof-img1"))
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = UIImage(named:"prof-img1")
         img.clipsToBounds = true
         img.layer.cornerRadius = 22.5
         img.contentMode = .scaleAspectFill
+        img.constrainWidth(constant: 45)
+        img.constrainHeight(constant: 45)
         return img
     }()
     
@@ -39,20 +40,15 @@ class ThreadCollectionViewCell: BaseCollectionCell {
         return l
     }()
     
-    lazy var descriptionLabel:UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.numberOfLines = 0
-        l.font = UIFont(name: "Avenir-Medium", size: 16)
-        l.textColor = UIColor.dynamicColor(.secondaryTextColor)
-        return l
-    }()
+    lazy var descriptionLabel = UILabel(text: "", font: UIFont(name: "Avenir-Medium", size: 16), textColor: UIColor.dynamicColor(.secondaryTextColor),  numberOfLines: 0)
     
     lazy var optionBtn:UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "moreBtn")?.withRenderingMode(.alwaysTemplate), for: .normal)
         btn.imageView?.tintColor = UIColor.dynamicColor(.iconColor)
+        btn.constrainWidth(constant: 25)
+        btn.constrainHeight(constant: 25)
         return btn
     }()
     
@@ -74,25 +70,19 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var likeImage:UIImageView = {
-        let img = UIImageView()
+        let img = UIImageView(image: UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate))
+        img.constrainWidth(constant: 25)
+               img.constrainHeight(constant: 25)
         img.translatesAutoresizingMaskIntoConstraints = false
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
-        img.image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
         img.tintColor = UIColor.dynamicColor(.iconColor)
         return img
     }()
     
-    lazy var likeLabel:UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "3.4k"
-        l.font = UIFont(name:"Avenir-Medium", size: 14)
-        l.textColor = UIColor.dynamicColor(.iconColor)
-        l.textAlignment = .center
-        return l
-    }()
-    
+    lazy var likeLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor:  UIColor.dynamicColor(.iconColor), textAlignment: .center)
+    lazy var likeStack = stack(likeImage,likeLabel,spacing:8)
+
     //MARK:- Retweet View
     
     lazy var retweetView:UIView = {
@@ -102,17 +92,18 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var retweetImage:UIImageView = {
-        let img = UIImageView()
+        let img = UIImageView(image: UIImage(named: "retweet")?.withRenderingMode(.alwaysTemplate))
         img.translatesAutoresizingMaskIntoConstraints = false
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
-        img.image = UIImage(named: "retweet")?.withRenderingMode(.alwaysTemplate)
         img.tintColor = UIColor.dynamicColor(.iconColor)
+        img.constrainWidth(constant: 25)
+               img.constrainHeight(constant: 25)
         return img
     }()
     
     lazy var retweetLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor: UIColor.dynamicColor(.iconColor), textAlignment: .center)
-    
+    lazy var retweetStack = stack(retweetImage,retweetLabel,spacing:8)
     //MARK:- Message View
     
     lazy var messageView:UIView = {
@@ -127,16 +118,21 @@ class ThreadCollectionViewCell: BaseCollectionCell {
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.tintColor = UIColor.dynamicColor(.iconColor)
+        img.constrainWidth(constant: 25)
+               img.constrainHeight(constant: 25)
         return img
     }()
     
     lazy var messageLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor:  UIColor.dynamicColor(.iconColor), textAlignment: .center)
-    
+    lazy var messageStack = stack(messageImage,messageLabel,spacing:8)
+
     lazy var starImage:UIImageView = {
         let img = UIImageView(image: UIImage(named: "star")?.withRenderingMode(.alwaysTemplate))
         img.translatesAutoresizingMaskIntoConstraints = false
         img.tintColor = UIColor.dynamicColor(.iconColor)
         img.contentMode = .scaleAspectFill
+        img.constrainWidth(constant: 25)
+               img.constrainHeight(constant: 25)
         return img
     }()
     
@@ -144,8 +140,10 @@ class ThreadCollectionViewCell: BaseCollectionCell {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = UIColor(white: 0, alpha: 0.08)
+        v.constrainHeight(constant: 1)
         return v
     }()
+    
     
     override func setupViews() {
         
@@ -269,7 +267,14 @@ class ThreadCollectionViewCell: BaseCollectionCell {
         messageLabel.text = data.messageCount
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+   
+}
+
+extension NSTextAttachment {
+    func setImageHeight(height: CGFloat) {
+        guard let image = image else { return }
+        let ratio = image.size.width / image.size.height
+        
+        bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: ratio * height, height: height)
     }
 }
