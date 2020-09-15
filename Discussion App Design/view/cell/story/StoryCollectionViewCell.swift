@@ -37,27 +37,16 @@ class StoryCollectionViewCell: BaseCollectionCell {
     
     override func setupViews() {
         
-   
-        addSubview(backView)
+        addSubViews(views: backView,userName)
         backView.addSubview(imageView)
-        addSubview(userName)
-      
-        NSLayoutConstraint.activate([
-            backView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            backView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            backView.widthAnchor.constraint(equalToConstant: 80),
-            backView.heightAnchor.constraint(equalToConstant: 80),
-            
-            imageView.centerXAnchor.constraint(equalTo: backView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: backView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 68),
-            imageView.heightAnchor.constraint(equalToConstant: 68),
-            userName.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: 5),
-            userName.centerXAnchor.constraint(equalTo: centerXAnchor),
-            userName.leadingAnchor.constraint(equalTo: leadingAnchor),
-            userName.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+         backView.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: nil,padding: .init(top: 10, left: 0, bottom: 60, right: 0))
+         imageView.centerInSuperview()
+         userName.anchor(top: backView.bottomAnchor, leading: nil, bottom: nil, trailing: nil,padding: .init(top: 5, left: 0, bottom: 0, right: 0))
+         NSLayoutConstraint.activate([
+             backView.centerXAnchor.constraint(equalTo: centerXAnchor),
+             userName.centerXAnchor.constraint(equalTo: centerXAnchor)
+         ])
+   
     }
-    
    
 }

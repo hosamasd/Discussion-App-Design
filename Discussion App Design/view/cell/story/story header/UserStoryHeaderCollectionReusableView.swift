@@ -61,16 +61,12 @@ class UserStoryHeaderCollectionReusableView: UICollectionReusableView {
        
         backView.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: nil,padding: .init(top: 28, left: 0, bottom: 0, right: 0))
         imageView.centerInSuperview()
-        userName.anchor(top: backView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,padding: .init(top: 7, left: 0, bottom: 0, right: 0))
+        userName.anchor(top: backView.bottomAnchor, leading: nil, bottom: nil, trailing: nil,padding: .init(top: 7, left: 0, bottom: 0, right: 0))
         dividerView.anchor(top: topAnchor, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor,padding: .init(top: 40, left: 0, bottom: 60, right: 0))
         addBtn.anchor(top: nil, leading: nil, bottom: backView.bottomAnchor, trailing: backView.trailingAnchor,padding: .init(top: 0, left: 0, bottom: 0, right: 0))
 
         NSLayoutConstraint.activate([
             backView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-//            imageView.centerXAnchor.constraint(equalTo: backView.centerXAnchor),
-//            imageView.centerYAnchor.constraint(equalTo: backView.centerYAnchor),
-            
             userName.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
