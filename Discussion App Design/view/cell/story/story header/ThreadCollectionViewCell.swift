@@ -81,7 +81,7 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var likeLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor:  UIColor.dynamicColor(.iconColor), textAlignment: .center)
-    lazy var likeStack = stack(likeImage,likeLabel,spacing:8)
+    lazy var likeStack = hstack(likeImage,likeLabel,spacing:8)
 
     //MARK:- Retweet View
     
@@ -103,7 +103,7 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var retweetLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor: UIColor.dynamicColor(.iconColor), textAlignment: .center)
-    lazy var retweetStack = stack(retweetImage,retweetLabel,spacing:8)
+    lazy var retweetStack = hstack(retweetImage,retweetLabel,spacing:8)
     //MARK:- Message View
     
     lazy var messageView:UIView = {
@@ -124,7 +124,7 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     }()
     
     lazy var messageLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor:  UIColor.dynamicColor(.iconColor), textAlignment: .center)
-    lazy var messageStack = stack(messageImage,messageLabel,spacing:8)
+    lazy var messageStack = hstack(messageImage,messageLabel,spacing:8)
 
     lazy var starImage:UIImageView = {
         let img = UIImageView(image: UIImage(named: "star")?.withRenderingMode(.alwaysTemplate))
@@ -135,7 +135,7 @@ class ThreadCollectionViewCell: BaseCollectionCell {
                img.constrainHeight(constant: 25)
         return img
     }()
-    
+
     lazy var headerDivide:UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -146,92 +146,14 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     
     
     override func setupViews() {
-        
-        
-        
-        addSubview(cardView)
-        cardView.addSubview(userImage)
-        cardView.addSubview(userDetail)
-        cardView.addSubview(optionBtn)
-        cardView.addSubview(descriptionLabel)
-        cardView.addSubview(stackView1)
-        stackView1.addArrangedSubview(likeView)
-        likeView.addSubview(likeImage)
-        likeView.addSubview(likeLabel)
-        stackView1.addArrangedSubview(retweetView)
-        retweetView.addSubview(retweetImage)
-        retweetView.addSubview(retweetLabel)
-        stackView1.addArrangedSubview(messageView)
-        messageView.addSubview(messageImage)
-        messageView.addSubview(messageLabel)
-        cardView.addSubview(starImage)
         addSubview(headerDivide)
-       
-        NSLayoutConstraint.activate([
-            cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
-            
-            userImage.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
-            userImage.topAnchor.constraint(equalTo: cardView.topAnchor),
-            userImage.widthAnchor.constraint(equalToConstant: 45),
-            userImage.heightAnchor.constraint(equalToConstant: 45),
-            
-            headerDivide.bottomAnchor.constraint(equalTo: bottomAnchor),
-            headerDivide.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            headerDivide.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  -30),
-            headerDivide.heightAnchor.constraint(equalToConstant: 1),
-            
-            userDetail.topAnchor.constraint(equalTo: cardView.topAnchor, constant:2),
-            userDetail.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 15),
-            
-            optionBtn.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            optionBtn.topAnchor.constraint(equalTo: cardView.topAnchor),
-            optionBtn.widthAnchor.constraint(equalToConstant: 25),
-            optionBtn.heightAnchor.constraint(equalToConstant: 25),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 15),
-            descriptionLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: stackView1.topAnchor, constant: -15),
-            
-            stackView1.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
-            stackView1.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
-            stackView1.widthAnchor.constraint(equalToConstant: 240),
-            stackView1.heightAnchor.constraint(equalToConstant: 25),
-            
-            likeImage.leadingAnchor.constraint(equalTo: likeView.leadingAnchor),
-            likeImage.widthAnchor.constraint(equalToConstant: 25),
-            likeImage.heightAnchor.constraint(equalToConstant: 25),
-            likeImage.centerYAnchor.constraint(equalTo: likeView.centerYAnchor),
-            likeLabel.leadingAnchor.constraint(equalTo: likeImage.trailingAnchor, constant:5),
-            likeLabel.trailingAnchor.constraint(equalTo: likeView.trailingAnchor , constant: -5),
-            likeLabel.centerYAnchor.constraint(equalTo: likeView.centerYAnchor),
-            
-            
-            retweetImage.leadingAnchor.constraint(equalTo: retweetView.leadingAnchor),
-            retweetImage.widthAnchor.constraint(equalToConstant: 25),
-            retweetImage.heightAnchor.constraint(equalToConstant: 25),
-            retweetImage.centerYAnchor.constraint(equalTo: retweetView.centerYAnchor),
-            retweetLabel.leadingAnchor.constraint(equalTo: retweetImage.trailingAnchor, constant:5),
-            retweetLabel.trailingAnchor.constraint(equalTo: retweetView.trailingAnchor , constant: -5),
-            retweetLabel.centerYAnchor.constraint(equalTo: retweetView.centerYAnchor),
-            
-            
-            messageImage.leadingAnchor.constraint(equalTo: messageView.leadingAnchor),
-            messageImage.widthAnchor.constraint(equalToConstant: 25),
-            messageImage.heightAnchor.constraint(equalToConstant: 25),
-            messageImage.centerYAnchor.constraint(equalTo: messageView.centerYAnchor),
-            messageLabel.leadingAnchor.constraint(equalTo: messageImage.trailingAnchor, constant:5),
-            messageLabel.trailingAnchor.constraint(equalTo: messageView.trailingAnchor , constant: -5),
-            messageLabel.centerYAnchor.constraint(equalTo: messageView.centerYAnchor),
-            
-            starImage.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            starImage.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
-            starImage.widthAnchor.constraint(equalToConstant: 25),
-            starImage.heightAnchor.constraint(equalToConstant: 25),
-        ])
+        let d = hstack(userImage,userDetail,stack(optionBtn,UIView()),spacing:8)
+        let bottom = hstack(likeStack,retweetStack,messageStack,UIView(),starImage,spacing:16)
+        
+        stack(d,descriptionLabel,bottom,spacing:16).withMargins(.init(top: 16, left: 16, bottom: 32, right: 16))
+        
+        headerDivide.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,padding: .init(top: 0, left: 16, bottom: 16, right: 0))
+        
     }
     
     func setUpAttributeText(category:String , isVerified:Bool, userName:String, time:String){
