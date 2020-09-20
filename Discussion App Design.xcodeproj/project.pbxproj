@@ -24,6 +24,10 @@
 		9F8E4325251014860074129F /* StoriesHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4324251014860074129F /* StoriesHeaderCollectionReusableView.swift */; };
 		9F8E4328251015000074129F /* UserStoryHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4327251015000074129F /* UserStoryHeaderCollectionReusableView.swift */; };
 		9F8E432A251019480074129F /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4329251019480074129F /* ThreadCollectionViewCell.swift */; };
+		9FAF8F6C25169C0100B6C8CA /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF8F6B25169C0100B6C8CA /* DiscussionViewController.swift */; };
+		9FAF8F6E25169C3B00B6C8CA /* CustomDiscussionBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF8F6D25169C3B00B6C8CA /* CustomDiscussionBottomBar.swift */; };
+		9FAF8F7125169E6000B6C8CA /* OutgoingMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF8F7025169E6000B6C8CA /* OutgoingMessageCollectionViewCell.swift */; };
+		9FAF8F7325169F5500B6C8CA /* IncomingMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF8F7225169F5500B6C8CA /* IncomingMessageCollectionViewCell.swift */; };
 		9FEED9CC2510294600C429EF /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEED9CB2510294600C429EF /* StoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		9F8E4324251014860074129F /* StoriesHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		9F8E4327251015000074129F /* UserStoryHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		9F8E4329251019480074129F /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FAF8F6B25169C0100B6C8CA /* DiscussionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
+		9FAF8F6D25169C3B00B6C8CA /* CustomDiscussionBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiscussionBottomBar.swift; sourceTree = "<group>"; };
+		9FAF8F7025169E6000B6C8CA /* OutgoingMessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FAF8F7225169F5500B6C8CA /* IncomingMessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		9FEED9CB2510294600C429EF /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8E42FF251010620074129F /* HomeViewController.swift */,
+				9FAF8F6B25169C0100B6C8CA /* DiscussionViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 			children = (
 				9F8E431B251011600074129F /* CustomBaseView.swift */,
 				9F8E43192510113E0074129F /* CategoryView.swift */,
+				9FAF8F6D25169C3B00B6C8CA /* CustomDiscussionBottomBar.swift */,
 			);
 			path = "custom view";
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 		9F8E431D2510121F0074129F /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				9FAF8F6F25169E4700B6C8CA /* DiscussionV */,
 				9FEED9CA2510293800C429EF /* story */,
 				9F8E4320251013530074129F /* BaseCollectionCell.swift */,
 				9F8E431E251013410074129F /* CategoryCollectionViewCell.swift */,
@@ -148,6 +159,15 @@
 				9F8E4329251019480074129F /* ThreadCollectionViewCell.swift */,
 			);
 			path = "story header";
+			sourceTree = "<group>";
+		};
+		9FAF8F6F25169E4700B6C8CA /* DiscussionV */ = {
+			isa = PBXGroup;
+			children = (
+				9FAF8F7025169E6000B6C8CA /* OutgoingMessageCollectionViewCell.swift */,
+				9FAF8F7225169F5500B6C8CA /* IncomingMessageCollectionViewCell.swift */,
+			);
+			path = DiscussionV;
 			sourceTree = "<group>";
 		};
 		9FEED9CA2510293800C429EF /* story */ = {
@@ -240,10 +260,14 @@
 				9F8E431F251013410074129F /* CategoryCollectionViewCell.swift in Sources */,
 				9F8E4300251010620074129F /* HomeViewController.swift in Sources */,
 				9F8E4325251014860074129F /* StoriesHeaderCollectionReusableView.swift in Sources */,
+				9FAF8F7325169F5500B6C8CA /* IncomingMessageCollectionViewCell.swift in Sources */,
 				9FEED9CC2510294600C429EF /* StoryCollectionViewCell.swift in Sources */,
 				9F8E42FC251010620074129F /* AppDelegate.swift in Sources */,
+				9FAF8F6C25169C0100B6C8CA /* DiscussionViewController.swift in Sources */,
+				9FAF8F6E25169C3B00B6C8CA /* CustomDiscussionBottomBar.swift in Sources */,
 				9F8E4317251010AA0074129F /* UILabel.swift in Sources */,
 				9F8E432A251019480074129F /* ThreadCollectionViewCell.swift in Sources */,
+				9FAF8F7125169E6000B6C8CA /* OutgoingMessageCollectionViewCell.swift in Sources */,
 				9F8E42FE251010620074129F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

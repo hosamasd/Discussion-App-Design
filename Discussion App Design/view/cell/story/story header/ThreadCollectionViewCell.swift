@@ -52,15 +52,6 @@ class ThreadCollectionViewCell: BaseCollectionCell {
         return btn
     }()
     
-    lazy var stackView1:UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .horizontal
-        sv.distribution = .fillEqually
-        sv.spacing = 10
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
-    }()
-    
     //MARK:- Like View
     
     lazy var likeView:UIView = {
@@ -85,12 +76,6 @@ class ThreadCollectionViewCell: BaseCollectionCell {
 
     //MARK:- Retweet View
     
-    lazy var retweetView:UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
-    
     lazy var retweetImage:UIImageView = {
         let img = UIImageView(image: UIImage(named: "retweet")?.withRenderingMode(.alwaysTemplate))
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -105,12 +90,6 @@ class ThreadCollectionViewCell: BaseCollectionCell {
     lazy var retweetLabel = UILabel(text: "3.4k", font: UIFont(name:"Avenir-Medium", size: 14), textColor: UIColor.dynamicColor(.iconColor), textAlignment: .center)
     lazy var retweetStack = hstack(retweetImage,retweetLabel,spacing:8)
     //MARK:- Message View
-    
-    lazy var messageView:UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
     
     lazy var messageImage:UIImageView = {
         let img = UIImageView(image: UIImage(named: "message")?.withRenderingMode(.alwaysTemplate))
@@ -138,7 +117,6 @@ class ThreadCollectionViewCell: BaseCollectionCell {
 
     lazy var headerDivide:UIView = {
         let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = UIColor(white: 0, alpha: 0.08)
         v.constrainHeight(constant: 1)
         return v
